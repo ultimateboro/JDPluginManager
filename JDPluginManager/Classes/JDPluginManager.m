@@ -95,14 +95,6 @@ NSInteger const JDRevealPluginInFinderTag = 1337;
         NSMenuItem *browseItem = [[[NSMenuItem alloc] initWithTitle:JDLocalize(@"keyBrowsePluginsMenuItemTitle") action:@selector(browsePlugins:) keyEquivalent:@""] autorelease];
         [browseItem setTarget:self];
         [[pluginsMenuItem submenu] addItem:browseItem];
-        
-        // separator
-        [[pluginsMenuItem submenu] addItem:[NSMenuItem separatorItem]];
-        
-        // about item
-        NSMenuItem *aboutItem = [[[NSMenuItem alloc] initWithTitle:JDLocalize(@"keyAboutMenuItemTitle") action:@selector(showAboutScreen:) keyEquivalent:@""] autorelease];
-        [aboutItem setTarget:self];
-        [[pluginsMenuItem submenu] addItem:aboutItem];
     }
 }
 
@@ -231,17 +223,6 @@ NSInteger const JDRevealPluginInFinderTag = 1337;
     if (url) {
         [[NSWorkspace sharedWorkspace] openURL:url];
     }
-}
-
-- (void)showAboutScreen:(NSMenuItem*)sender;
-{
-    // show about screen
-
-    // update JDPluginManager
-    //[[[[JDPluginInstaller alloc] init] autorelease] beginInstallWithRepositoryUrl:@"git@github.com:jaydee3/JDPluginManager.git" searchInSubdirectories:NO];
-
-    // openGithub
-    [[NSWorkspace sharedWorkspace] openURL:[NSURL URLWithString:@"https://github.com/jaydee3/JDPluginManager"]];
 }
 
 - (void)deletePlugin:(NSMenuItem*)sender;
